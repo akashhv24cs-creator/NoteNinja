@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Menu, X, Shield, Zap } from 'lucide-react';
+import { Menu, X, Shield, Zap } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import NoteNinjaLogo from './NoteNinjaLogo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,13 +35,8 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
     >
       <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform">
-            <BookOpen className="w-6 h-6 text-white" />
-          </div>
-          <span className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-300 bg-clip-text text-transparent tracking-tight">
-            NoteNinja
-          </span>
+        <Link to="/">
+          <NoteNinjaLogo size="md" />
         </Link>
 
         {/* Desktop Navigation */}

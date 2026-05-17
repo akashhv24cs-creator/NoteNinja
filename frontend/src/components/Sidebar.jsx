@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { LayoutDashboard, BookOpen, FolderOpen, LogOut, ChevronLeft, ChevronRight, Zap, HardDrive, Search, UploadCloud } from 'lucide-react';
+import { LayoutDashboard, BookOpen, FolderOpen, LogOut, ChevronLeft, ChevronRight, HardDrive, Search, UploadCloud } from 'lucide-react';
 import api from '../services/api';
 import ThemeToggle from './ThemeToggle';
+import NoteNinjaLogo from './NoteNinjaLogo';
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -60,22 +61,15 @@ const Sidebar = () => {
       className="hidden md:flex flex-col fixed top-0 left-0 bottom-0 z-40 glass-panel border-r border-white/10 select-none"
     >
       {/* App Logo */}
-      <div className="flex items-center justify-between p-6 border-b border-white/5">
+      <div className="flex items-center justify-between p-5 border-b border-white/5">
         {!isCollapsed && (
-          <Link to="/dashboard" className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-300 bg-clip-text text-transparent tracking-tight">
-              NoteNinja
-            </span>
+          <Link to="/dashboard">
+            <NoteNinjaLogo size="sm" />
           </Link>
         )}
         {isCollapsed && (
           <Link to="/dashboard" className="mx-auto">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
-              <BookOpen className="w-6 h-6 text-white" />
-            </div>
+            <NoteNinjaLogo size="sm" showText={false} />
           </Link>
         )}
         <button 

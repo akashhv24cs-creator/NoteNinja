@@ -150,7 +150,14 @@ html.light .glass-input:focus {
 html.light .text-gray-400 { color: #64748b !important; }
 html.light .text-gray-300 { color: #475569 !important; }
 html.light .text-gray-500 { color: #94a3b8 !important; }
-html.light .text-white   { color: #1e293b !important; }
+html.light .text-white   { color: #0f172a !important; }
+
+/* Fix gradient-text class to be visible in both modes */
+html.light .gradient-text {
+  background: linear-gradient(135deg, #7c3aed 0%, #be185d 50%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* Light mode: dark bg inline classes to light equivalents */
 html.light [class*="bg-\[#0b0f19\]"]  { background-color: #f1f5f9 !important; }
