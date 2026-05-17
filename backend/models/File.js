@@ -29,7 +29,20 @@ const fileSchema = new mongoose.Schema({
   uploadDate: {
     type: Date,
     default: Date.now
-  }
+  },
+  // --- Engineering Notes Metadata ---
+  title: { type: String, trim: true },
+  description: { type: String, trim: true },
+  branch: { type: String, trim: true },
+  semester: { type: Number },
+  subject: { type: String, trim: true },
+  moduleNumber: { type: Number },
+  tags: [{ type: String, trim: true }],
+  downloads: { type: Number, default: 0 },
+  views: { type: Number, default: 0 }
 });
+
+// Text index for fast searching
+fileSchema.index({ title: 'text', subject: 'text', tags: 'text', branch: 'text' });
 
 module.exports = mongoose.model('File', fileSchema);

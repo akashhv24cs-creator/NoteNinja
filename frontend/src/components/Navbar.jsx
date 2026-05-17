@@ -17,7 +17,10 @@ const Navbar = () => {
 
   const isDashboardRoute = location.pathname.startsWith('/dashboard') || 
                            location.pathname.startsWith('/notes') || 
-                           location.pathname.startsWith('/files');
+                           location.pathname.startsWith('/files') ||
+                           location.pathname.startsWith('/explore') ||
+                           location.pathname.startsWith('/upload-note') ||
+                           location.pathname.startsWith('/note');
 
   // If on dashboard routes, we use Sidebar instead of top Navbar, or we can show a minimal top bar
   if (isDashboardRoute) return null;

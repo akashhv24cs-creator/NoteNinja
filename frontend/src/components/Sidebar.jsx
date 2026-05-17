@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { LayoutDashboard, BookOpen, FolderOpen, LogOut, ChevronLeft, ChevronRight, Zap, HardDrive } from 'lucide-react';
+import { LayoutDashboard, BookOpen, FolderOpen, LogOut, ChevronLeft, ChevronRight, Zap, HardDrive, Search, UploadCloud } from 'lucide-react';
 import api from '../services/api';
 
 const Sidebar = () => {
@@ -45,6 +45,8 @@ const Sidebar = () => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
+    { icon: Search, label: 'Explore Notes', path: '/explore' },
+    { icon: UploadCloud, label: 'Upload Note', path: '/upload-note' },
     { icon: BookOpen, label: 'My Notes', path: '/notes' },
     { icon: FolderOpen, label: 'Documents & PDFs', path: '/files' },
   ];

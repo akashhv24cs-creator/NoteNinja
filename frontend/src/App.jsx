@@ -9,6 +9,9 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Notes from './pages/Notes';
 import Files from './pages/Files';
+import ExploreNotes from './pages/ExploreNotes';
+import UploadNote from './pages/UploadNote';
+import NoteDetails from './pages/NoteDetails';
 
 // Components
 import ProtectedRoute from './components/ProtectedRoute';
@@ -63,6 +66,30 @@ function App() {
             element={
               <ProtectedRoute>
                 <Files />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/explore" 
+            element={
+              <ProtectedRoute>
+                <ExploreNotes />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/upload-note" 
+            element={
+              <ProtectedRoute>
+                <UploadNote />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/note/:id" 
+            element={
+              <ProtectedRoute>
+                <NoteDetails />
               </ProtectedRoute>
             } 
           />

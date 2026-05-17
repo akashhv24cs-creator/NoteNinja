@@ -8,6 +8,7 @@ const connectDB = require('./services/db');
 const authRoutes = require('./routes/authRoutes');
 const noteRoutes = require('./routes/noteRoutes');
 const fileRoutes = require('./routes/fileRoutes');
+const engineeringNoteRoutes = require('./routes/engineeringNoteRoutes');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
 app.use('/api/files', fileRoutes);
+app.use('/api/engineering-notes', engineeringNoteRoutes);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
