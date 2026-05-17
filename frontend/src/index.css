@@ -146,11 +146,44 @@ html.light .glass-input:focus {
   box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
 }
 
-/* Light mode: text overrides for gray palette used across components */
-html.light .text-gray-400 { color: #64748b !important; }
-html.light .text-gray-300 { color: #475569 !important; }
-html.light .text-gray-500 { color: #94a3b8 !important; }
-html.light .text-white   { color: #0f172a !important; }
+/* =============================================
+   LIGHT MODE — TEXT: Everything near-black
+   ============================================= */
+
+/* Body default text */
+html.light body { color: #111827; }
+
+/* All Tailwind text color utilities → near-black shades */
+html.light .text-white        { color: #111827 !important; }
+html.light .text-gray-100     { color: #111827 !important; }
+html.light .text-gray-200     { color: #1f2937 !important; }
+html.light .text-gray-300     { color: #374151 !important; }
+html.light .text-gray-400     { color: #374151 !important; }
+html.light .text-gray-500     { color: #4b5563 !important; }
+html.light .text-gray-600     { color: #4b5563 !important; }
+
+/* Inline arbitrary text colors (e.g. text-[#xxx]) → black */
+html.light [class*="text-\[#"] { color: #111827 !important; }
+
+/* Placeholder text */
+html.light ::placeholder { color: #6b7280 !important; opacity: 1; }
+
+/* Select / option text */
+html.light select, html.light option { color: #111827 !important; }
+
+/* Input text */
+html.light input, html.light textarea { color: #111827 !important; }
+
+/* Icon colors (svg strokes inherit from parent) */
+html.light .text-gray-400 svg,
+html.light .text-gray-500 svg { color: #374151 !important; }
+
+/* Keep accent purple/pink badge text as-is (don't override colored text) */
+html.light .text-purple-400 { color: #7c3aed !important; }
+html.light .text-pink-400   { color: #be185d !important; }
+html.light .text-purple-300 { color: #6d28d9 !important; }
+html.light .text-blue-400   { color: #1d4ed8 !important; }
+html.light .text-rose-400   { color: #be123c !important; }
 
 /* Fix gradient-text class to be visible in both modes */
 html.light .gradient-text {
