@@ -6,14 +6,31 @@
     --bg-secondary: #111827;
     --accent-glow: rgba(147, 51, 234, 0.25);
   }
+
+  /* Light mode variable overrides */
+  html.light {
+    --bg-primary: #f1f5f9;
+    --bg-secondary: #e2e8f0;
+    --accent-glow: rgba(99, 102, 241, 0.15);
+  }
   
+  /* Smooth theme transition on all elements */
+  *, *::before, *::after {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease, box-shadow 0.25s ease;
+  }
+
   body {
-    background-color: #0b0f19;
+    background-color: var(--bg-primary);
     color: #f3f4f6;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
+
+  html.light body {
+    color: #1e293b;
+  }
 }
+
 
 /* Custom Glassmorphism & Premium UI Utilities */
 .glass-panel {
@@ -85,6 +102,67 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #374151;
 }
+
+/* ============================================
+   LIGHT MODE OVERRIDES
+   ============================================ */
+
+html.light ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html.light .glass-card:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+}
+
+html.light .glass-input {
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #1e293b;
+}
+
+html.light .glass-input:focus {
+  background: #ffffff;
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+/* Light mode: text overrides for gray palette used across components */
+html.light .text-gray-400 { color: #64748b !important; }
+html.light .text-gray-300 { color: #475569 !important; }
+html.light .text-gray-500 { color: #94a3b8 !important; }
+html.light .text-white   { color: #1e293b !important; }
+
+/* Light mode: dark bg inline classes to light equivalents */
+html.light [class*="bg-\[#0b0f19\]"]  { background-color: #f1f5f9 !important; }
+html.light [class*="bg-\[#111827\]"]  { background-color: #e2e8f0 !important; }
+html.light [class*="bg-\[#0f1423\]"]  { background-color: #e8eef6 !important; }
+html.light [class*="bg-black\/20"]    { background-color: rgba(0,0,0,0.04) !important; }
+html.light [class*="bg-white\/5"]     { background-color: rgba(0,0,0,0.04) !important; }
+html.light [class*="bg-white\/\[0\.02\]"] { background-color: rgba(0,0,0,0.02) !important; }
+html.light [class*="border-white\/10"] { border-color: rgba(0,0,0,0.1) !important; }
+html.light [class*="border-white\/5"]  { border-color: rgba(0,0,0,0.06) !important; }
+html.light [class*="hover\:bg-white\/5"]:hover  { background-color: rgba(0,0,0,0.05) !important; }
+html.light [class*="hover\:bg-white\/10"]:hover { background-color: rgba(0,0,0,0.08) !important; }
 
 /* Animations */
 @keyframes float {

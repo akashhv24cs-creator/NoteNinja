@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { LayoutDashboard, BookOpen, FolderOpen, LogOut, ChevronLeft, ChevronRight, Zap, HardDrive, Search, UploadCloud } from 'lucide-react';
 import api from '../services/api';
+import ThemeToggle from './ThemeToggle';
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -132,25 +133,36 @@ const Sidebar = () => {
       )}
 
       {/* User Profile & Logout */}
-      <div className="p-4 border-t border-white/5 flex items-center justify-between gap-3 bg-white/[0.02]">
-        {!isCollapsed && (
-          <div className="flex items-center gap-3 overflow-hidden">
-            <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center font-bold text-purple-300">
-              {user?.username?.charAt(0)?.toUpperCase() || 'N'}
+      <div className="p-4 border-t border-white/5 flex flex-col gap-3 bg-white/[0.02]">
+        {/* Theme Toggle Row */}
+        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} px-1`}>
+          {!isCollapsed && (
+            <span className="text-xs text-gray-500 font-medium uppercase tracking-wider">Theme</span>
+          )}
+          <ThemeToggle />
+        </div>
+
+        {/* User info & logout */}
+        <div className="flex items-center justify-between gap-3">
+          {!isCollapsed && (
+            <div className="flex items-center gap-3 overflow-hidden">
+              <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center font-bold text-purple-300">
+                {user?.username?.charAt(0)?.toUpperCase() || 'N'}
+              </div>
+              <div className="overflow-hidden">
+                <h4 className="text-sm font-semibold text-white truncate">{user?.username || 'Student'}</h4>
+                <p className="text-xs text-gray-400 truncate">{user?.email || 'student@noteninja.com'}</p>
+              </div>
             </div>
-            <div className="overflow-hidden">
-              <h4 className="text-sm font-semibold text-white truncate">{user?.username || 'Student'}</h4>
-              <p className="text-xs text-gray-400 truncate">{user?.email || 'student@noteninja.com'}</p>
-            </div>
-          </div>
-        )}
-        <button 
-          onClick={handleLogout}
-          title="Logout"
-          className={`p-2.5 rounded-xl text-gray-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors ${isCollapsed ? 'mx-auto' : ''}`}
-        >
-          <LogOut className="w-5 h-5" />
-        </button>
+          )}
+          <button 
+            onClick={handleLogout}
+            title="Logout"
+            className={`p-2.5 rounded-xl text-gray-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors ${isCollapsed ? 'mx-auto' : ''}`}
+          >
+            <LogOut className="w-5 h-5" />
+          </button>
+        </div>
       </div>
     </motion.aside>
   );

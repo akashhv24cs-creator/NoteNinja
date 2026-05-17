@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Menu, X, Shield, Zap } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +51,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           {token ? (
             <>
               <Link 
@@ -109,6 +111,10 @@ const Navbar = () => {
             <a href="#pricing" onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-white py-2 font-medium">Premium</a>
             
             <div className="h-[1px] bg-white/10 my-2" />
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-400 font-medium">Theme</span>
+              <ThemeToggle />
+            </div>
 
             {token ? (
               <div className="flex flex-col gap-3">
