@@ -4,14 +4,11 @@ import { useTheme } from '../context/ThemeContext';
 /* Custom shuriken-notebook SVG icon */
 const NinjaIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Notebook base */}
     <rect x="6" y="4" width="18" height="22" rx="3" fill="white" fillOpacity="0.95" />
     <rect x="6" y="4" width="3" height="22" rx="1.5" fill="white" fillOpacity="0.5" />
-    {/* Lines on notebook */}
     <line x1="12" y1="11" x2="21" y2="11" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" />
     <line x1="12" y1="15" x2="21" y2="15" stroke="#a855f7" strokeWidth="1.5" strokeLinecap="round" />
     <line x1="12" y1="19" x2="18" y2="19" stroke="#ec4899" strokeWidth="1.5" strokeLinecap="round" />
-    {/* Ninja shuriken star overlay */}
     <g transform="translate(19, 5) rotate(15 6 6)">
       <polygon points="6,1 7.5,4.5 11,4.5 8.5,7 9.5,10.5 6,8.5 2.5,10.5 3.5,7 1,4.5 4.5,4.5" fill="url(#ninjaStar)" />
     </g>
@@ -24,7 +21,7 @@ const NinjaIcon = ({ size = 24 }) => (
   </svg>
 );
 
-const NoteNinjaLogo = ({ size = 'md', showText = true, to = '/' }) => {
+const NoteNinjaLogo = ({ size = 'md', showText = true }) => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -50,20 +47,17 @@ const NoteNinjaLogo = ({ size = 'md', showText = true, to = '/' }) => {
         <NinjaIcon size={icon} />
       </div>
 
-      {/* Brand Text */}
+      {/* Brand Text — using a single plain color avoids background-clip issues */}
       {showText && (
         <span
           className={`${text} font-extrabold tracking-tight`}
           style={{
-            background: isDark
-              ? 'linear-gradient(90deg, #ffffff 0%, #d8b4fe 50%, #f9a8d4 100%)'
-              : 'linear-gradient(90deg, #1e1b4b 0%, #7c3aed 50%, #be185d 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            color: isDark ? '#e9d5ff' : '#3b0764',
+            textShadow: isDark ? '0 0 30px rgba(168,85,247,0.4)' : 'none',
+            letterSpacing: '-0.02em',
           }}
         >
-          NoteNinja
+          Note<span style={{ color: isDark ? '#f9a8d4' : '#7c3aed' }}>Ninja</span>
         </span>
       )}
     </div>
@@ -71,3 +65,4 @@ const NoteNinjaLogo = ({ size = 'md', showText = true, to = '/' }) => {
 };
 
 export default NoteNinjaLogo;
+
