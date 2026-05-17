@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #0b0f19;
+    --bg-secondary: #111827;
+    --accent-glow: rgba(147, 51, 234, 0.25);
+  }
+  
+  body {
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Glassmorphism & Premium UI Utilities */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card {
+  background: rgba(31, 41, 55, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(31, 41, 55, 0.6);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.25);
+  transform: translateY(-2px);
+}
+
+.glass-input {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f3f4f6;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: rgba(17, 24, 39, 0.95);
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+  outline: none;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(236, 72, 153, 0.5));
+  padding: 1px;
+}
+
+/* Custom Scrollbar for Dark Aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; filter: blur(40px); }
+  50% { opacity: 0.8; filter: blur(60px); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 8s ease-in-out infinite;
+}
